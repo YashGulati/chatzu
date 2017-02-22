@@ -1,10 +1,63 @@
 body
   margin: 0px
-  background-color red
 header
+  position: fixed;
   background-color: orange
-  height: 10vh
+  width: 100%
+  height: 50px
+  padding: 0vh 15vw
+  color white
+  font-size: 30px
+  &>*
+    float: left
+  .logo
+    height: 50px
+    width: 75px
+    background-color: blue
+    // margin: 0 0 10px 10px
+  .name
+    position: relative;
+    // left: 25%;
+    top: 50%;
+    margin-left: 10px
+    margin-right: -50%
+    transform: translate(0, -50%)
+    border: 2px solid blue
 .leftPanel
+  position: fixed
   height: 100vh
   width: 20vh
   background-color: #f3f9e9
+.chatBox
+  position: relative;
+  left: 500px
+  top: 100px
+  border: 2px solid gray
+  width: 500px
+  height: 400px
+  & form
+    position: absolute;
+    bottom: 0px
+    width: 100%
+    display: block;
+    height: 10%
+    background-color: #3B2B4B
+    & input
+      position: absolute;
+      top: 50%
+      left: 50%
+      transform: translate(-55%, -50%)
+      width: 80%
+      height: 70%
+      border: none
+      // border-top: 2px solid gray
+      font-size: 1.2em
+    & img
+      height: 90%
+      width: 60px
+      position: absolute;
+      top: 50%
+      right: 0%
+      transform: translate(0%, -50%)
+      margin-right: 4px
+      float: right
