@@ -13,7 +13,7 @@ app.set('view engine', 'ejs')
 app.set('views', path.join(__dirname, '/pages'))
 
 app.use(stylus.middleware({
-  src: __dirname + '/styles',
+  src: __dirname,
   dest: __dirname + '/public',
   compress: true
 }))
