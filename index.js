@@ -22,12 +22,33 @@ app.use(stylus.middleware({
 app.use(require('express').static(__dirname + '/public'));
 
 app.get('/', (req,res) => {
-  res.render('index');
+  db.globalChat.find(function (err, docs) {
+    // console.log(docs);
+    res.render('index', {
+      'messages': docs,
+      'errors': 0
+    })
 })
+})
+var mongojs = require('mongojs')
+var db = mongojs('chatzu', ['globalChat']);
 
 app.post('/sendMessage', function(req, res){
-  console.log(req.body.msg);
-  res.render('index');
+  var msg = req.body.msg
+  var data = {
+    message: msg
+  }
+  if(msg == '')
+    res.redirect('/')
+  else {
+    db.globalChat.insert(data, function(err, result){
+      if(err){
+        console.log(err)
+      } else {
+        res.redirect('/')
+      }
+    })
+  }
 })
 
 app.listen( port , function(){
