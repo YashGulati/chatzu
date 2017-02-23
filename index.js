@@ -70,9 +70,10 @@ app.post('/sendMessage', function(req, res){
       }
     })
   }
+  io.sockets.emit('refreshAll');
 })
 
-app.listen( port , function(){
+server.listen( port , function(){
     console.log("Server Listening on port %s...", port);
 });
 
@@ -80,6 +81,14 @@ io.sockets.on('connection', function(socket){
   connections.push(socket);
   console.log('Connected: %s sockets connected', connections.length);
 
+  socket.on('disconnect', function(data){
+    connections.splice(connections.indexOf(socket), 1)
+    console.log('Disconnected: %s sockets connected', connections.length);
+  })
 
+  socket.on('messageSent', function(data){
+
+
+  })
 
 })

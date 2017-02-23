@@ -12,4 +12,13 @@ setFocusToMessageBox();
 
 $(function(){
   var socket = io.connect();
+
+  $('#sendMessageForm').submit(function(e){
+    socket.emit('messageSent');
+  });
+
+  socket.on('refreshAll', function(){
+    location.reload();
+  })
+
 })
