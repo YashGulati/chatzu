@@ -11,6 +11,7 @@ var port = process.env.PORT || 80
 var getNamePage = '/'
 var homepage = getNamePage
 var globalChatPath = '/chat'
+var totalOnline = 0
 // body-parser Middleware
 var bodyParser = require('body-parser')
 app.use(bodyParser.urlencoded({extended: false}))
@@ -38,6 +39,7 @@ app.get(globalChatPath, (req,res) => {
     res.render('index', {
       'userName': req.query.userName,
       'messages': docs,
+      'totalOnline': totalOnline,
       'errors': 0
     })
   })
@@ -81,10 +83,12 @@ server.listen( port , function(){
 io.sockets.on('connection', function(socket){
   connections.push(socket);
   console.log('Connected: %s sockets connected', connections.length);
+  totalOnline = connections.length;
 
   socket.on('disconnect', function(data){
     connections.splice(connections.indexOf(socket), 1)
     console.log('Disconnected: %s sockets connected', connections.length);
+    totalOnline = connections.length;
   })
 
   socket.on('messageSent', function(data){
