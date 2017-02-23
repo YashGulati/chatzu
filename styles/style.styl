@@ -59,7 +59,7 @@ header
     overflow-y: scroll;
     .me
       right: 0
-      background: #FFFFFF
+      // background: #FFFFFF
     .other
       left: 0
     .message
@@ -105,26 +105,45 @@ header
       transform: translate(220%, -50%)
       margin-right: 4px
       float: right
+w = 250
+h = 216
 .userNameDiv
-  width: 30%
-  height: 30%
+  width: w*1.5px
+  height: h*1.5px
   background: #2B2B2B
   position: absolute;
+  display: table
   left: 50%
   top: 50%
   transform: translate(-50%,-50%);
   & .formHeading
+    position: relative;
     background-color: #7300AB
+    color: white
+    font-family: arial
+    font-weight: bold
+    font-size: 2em
+    text-align: center
+    // display: table-cell;
+    vertical-align: middle
+    // border: 2px solid red
     height: 25%
   .userNameForm
+    position: absolute;
+    // border: 2px solid red
+    left: 50%
+    top: 50%
+    transform: translate(-50%,-50%);
     *
       display: block;
     input[type=text]
-      height: 1em
-      width: 300px
-      margin: 10px auto 0 auto
-      padding: 5px 10px
+      height: 32*1.1px
+      width: 160*1.1*1.2px
+      text-align: center
+      margin: 50px auto 20px auto
+      font-family: Myriad Pro
     button
       margin: 10px auto 0 auto
       height: 40px
       width: 100px
+      // background-color: blue
