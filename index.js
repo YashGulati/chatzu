@@ -33,6 +33,7 @@ var db = mongojs('chatzu', ['globalChat']);
 
 app.get(globalChatPath, (req,res) => {
   console.log('In global chat: '+req.query.userName);
+  io.sockets.emit('userCame',req.query.userName);
   db.globalChat.find(function (err, docs) {
     res.render('index', {
       'userName': req.query.userName,

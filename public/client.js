@@ -21,4 +21,8 @@ $(function(){
     location.reload();
   })
 
+  socket.on('userCame', function(){
+    console.log('A user came');
+  })
+
 })

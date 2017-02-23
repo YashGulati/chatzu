@@ -39,17 +39,17 @@ header
   width: 500px
   height: 400px
   .chatHeading
+    position: relative;
     height: 15%
     background-color: #298CCE
     color: white
-    span
-      top: 50%;
-      transform: translateY(-50%);
+    div
       font-size: 2em
-      position: relative;
+      position: absolute;
+      top: 50%
+      transform: translate(0%,-50%);
       margin: 0 15px
-      vertical-align: center
-      border: 2px solid green
+
   #messages
     height: 75%
     overflow: hidden;
