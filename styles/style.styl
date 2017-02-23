@@ -1,6 +1,9 @@
 body
   margin: 0px
   font-family: medium-content-sans-serif-font,"Lucida Grande","Lucida Sans Unicode","Lucida Sans",Geneva,Arial,sans-serif;
+  background-image: url(/bg1.jpg);
+  background-position: center;
+
 header
   position: fixed;
   z-index: 1
@@ -103,18 +106,24 @@ header
       margin-right: 4px
       float: right
 .userNameDiv
-  padding: 20px
+  width: 30%
+  height: 30%
   background: #2B2B2B
   position: absolute;
   left: 50%
   top: 50%
   transform: translate(-50%,-50%);
+  & .formHeading
+    background-color: #7300AB
+    height: 25%
   .userNameForm
     *
       display: block;
     input[type=text]
-      height: 2.5em
+      height: 1em
       width: 300px
+      margin: 10px auto 0 auto
+      padding: 5px 10px
     button
       margin: 10px auto 0 auto
       height: 40px
