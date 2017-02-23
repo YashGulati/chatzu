@@ -4,8 +4,12 @@ function gotoBottom(id){
 }
 
 function setFocusToMessageBox(){
-    document.getElementById("msg").focus();
+    document.getElementById("mainBox").focus();
 }
-
-gotoBottom('messages');
+if(document.getElementById('messages'))
+  gotoBottom('messages');
 setFocusToMessageBox();
+
+$(function(){
+  var socket = io.connect();
+})

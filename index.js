@@ -1,5 +1,9 @@
 var express = require('express')
 var app = express()
+var server = require('http').createServer(app)
+var io = require('socket.io').listen(server)
+var users = []
+var connections = []
 var ejs = require('ejs')
 var stylus = require('stylus')
 var path = require('path')
@@ -71,3 +75,11 @@ app.post('/sendMessage', function(req, res){
 app.listen( port , function(){
     console.log("Server Listening on port %s...", port);
 });
+
+io.sockets.on('connection', function(socket){
+  connections.push(socket);
+  console.log('Connected: %s sockets connected', connections.length);
+
+
+
+})
