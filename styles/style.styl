@@ -1,5 +1,6 @@
 body
   margin: 0px
+  font-family: medium-content-sans-serif-font,"Lucida Grande","Lucida Sans Unicode","Lucida Sans",Geneva,Arial,sans-serif;
 header
   position: fixed;
   z-index: 1
@@ -37,23 +38,37 @@ header
   border: 2px solid gray
   width: 500px
   height: 400px
+  .chatHeading
+    height: 15%
+    background-color: #298CCE
+    color: white
+
+
+    span
+
   #messages
-    height: 90%
+    height: 75%
     overflow: hidden;
     overflow-y: scroll;
-
-  .message
-    // float: left
-    height: 20px
-    width: 76%
-    border: 2px solid #439963
-    margin: 5px
-    .messageUserName
-      display: inline;
-      color: white
-      background: gray
-      font-weight: bold
-      margin-right: 5px
+    .me
+      right: 0
+      background: #FFFFFF
+    .other
+      left: 0
+    .message
+      // float: left
+      position: relative;
+      height: 30px
+      width: 80%
+      border: 2px solid #439963
+      border-radius: 10px
+      margin: 5px
+      .messageUserName
+        display: inline;
+        color: white
+        background: gray
+        font-weight: bold
+        margin-right: 5px
   & form
     position: absolute;
     bottom: 0px

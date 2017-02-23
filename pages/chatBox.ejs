@@ -1,8 +1,11 @@
 <div class="chatBox">
+  <div class="chatHeading">
+    <span>Global Chat</span>
+  </div>
   <div id="messages">
     <% messages.forEach(function(message){ %>
       <% if(message!=''){ %>
-      <div class="message">
+      <div class="message <%= (userName==message.userName)?'me':'otherPerson' %>">
         <div class="messageUserName">
           <%= message.userName + ': ' %>
         </div>
