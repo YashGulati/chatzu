@@ -1,14 +1,18 @@
 <div class="chatBox">
-  <div class="messages">
+  <div id="messages">
     <% messages.forEach(function(message){ %>
       <% if(message!=''){ %>
       <div class="message">
+        <div class="messageUserName">
+          <%= message.userName + ': ' %>
+        </div>
         <%= message.message %>
       </div>
       <% } %>
     <% }) %>
   </div>
   <form method="POST" action="/sendMessage" name="chatForm">
+    <input type="text" name="userName" value="<%= userName %>">
     <input type="text" name="msg" placeholder="Type your message">
     <input type="image" src="/sendButton.png" border="0" alt="Submit" />
   </form>

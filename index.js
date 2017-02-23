@@ -4,7 +4,9 @@ var ejs = require('ejs')
 var stylus = require('stylus')
 var path = require('path')
 var port = process.env.PORT || 80
-
+var getNamePage = '/'
+var homepage = getNamePage
+var globalChatPath = '/chat'
 // body-parser Middleware
 var bodyParser = require('body-parser')
 app.use(bodyParser.urlencoded({extended: false}))
@@ -21,31 +23,46 @@ app.use(stylus.middleware({
 
 app.use(require('express').static(__dirname + '/public'));
 
-app.get('/', (req,res) => {
-  db.globalChat.find(function (err, docs) {
-    // console.log(docs);
-    res.render('index', {
-      'messages': docs,
-      'errors': 0
-    })
-})
-})
+// mongo
 var mongojs = require('mongojs')
 var db = mongojs('chatzu', ['globalChat']);
 
+app.get(globalChatPath, (req,res) => {
+  console.log('In global chat: '+req.query.userName);
+  db.globalChat.find(function (err, docs) {
+    res.render('index', {
+      'userName': req.query.userName,
+      'messages': docs,
+      'errors': 0
+    })
+  })
+})
+
+app.get(getNamePage, (req, res) => {
+  res.render('getName')
+})
+
+app.post('/userNameSubmit', function(req,res){
+  var userName = req.body.userName
+  console.log('New User: ' + userName);
+  res.redirect(globalChatPath + '?userName=' + userName)
+})
+
 app.post('/sendMessage', function(req, res){
   var msg = req.body.msg
+  var userName = req.body.userName
   var data = {
+    userName: userName,
     message: msg
   }
   if(msg == '')
-    res.redirect('/')
+    res.redirect(globalChatPath + '?userName=' + userName)
   else {
     db.globalChat.insert(data, function(err, result){
       if(err){
         console.log(err)
       } else {
-        res.redirect('/')
+        res.redirect(globalChatPath + '?userName=' + userName)
       }
     })
   }

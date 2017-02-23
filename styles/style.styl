@@ -35,9 +35,23 @@ header
   border: 2px solid gray
   width: 500px
   height: 400px
+  #messages
+    height: 90%
+    overflow: hidden;
+    overflow-y: scroll;
+
   .message
+    // float: left
+    height: 20px
+    width: 76%
     border: 2px solid #439963
     margin: 5px
+    .messageUserName
+      display: inline;
+      color: white
+      background: gray
+      font-weight: bold
+      margin-right: 5px
   & form
     position: absolute;
     bottom: 0px
@@ -67,3 +81,20 @@ header
       transform: translate(220%, -50%)
       margin-right: 4px
       float: right
+.userNameDiv
+  padding: 20px
+  background: #2B2B2B
+  position: absolute;
+  left: 50%
+  top: 50%
+  transform: translate(-50%,-50%);
+  .userNameForm
+    *
+      display: block;
+    input[type=text]
+      height: 2.5em
+      width: 300px
+    button
+      margin: 10px auto 0 auto
+      height: 40px
+      width: 100px
