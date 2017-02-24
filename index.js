@@ -82,6 +82,8 @@ server.listen( port , function(){
 
 io.sockets.on('connection', function(socket){
   connections.push(socket);
+  console.log(socket.id);
+  socket.send(socket.id);
   console.log('Connected: %s sockets connected', connections.length);
   totalOnline = connections.length;
 

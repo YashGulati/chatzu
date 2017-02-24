@@ -11,8 +11,11 @@ if(document.getElementById('messages'))
 setFocusToMessageBox();
 
 $(function(){
-  var socket = io.connect({
-'sync disconnect on unload': true });
+  var socket = io.connect({ 'sync disconnect on unload': true });
+
+  socket.on('connect', function () {
+    console.log(this.id);
+  });
 
   $('#sendMessageForm').submit(function(e){
     socket.emit('messageSent');
