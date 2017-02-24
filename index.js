@@ -46,13 +46,26 @@ app.get(globalChatPath, (req,res) => {
 })
 
 app.get(getNamePage, (req, res) => {
-  res.render('getName')
+  var error = ""
+  if(req.query.error === 'blankusername'){
+    error = "Blank Username"
+  }
+  res.render('getName',{
+    error: error
+  })
 })
+
+
 
 app.post('/userNameSubmit', function(req,res){
   var userName = req.body.userName
+  if(userName == ""){
+    console.log("Anyone Typed blank username");
+    res.redirect(getNamePage+'?error=blankusername')
+  } else {
   console.log('New User: ' + userName);
   res.redirect(globalChatPath + '?userName=' + userName)
+  }
 })
 
 app.post('/sendMessage', function(req, res){
