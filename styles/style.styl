@@ -1,3 +1,4 @@
+@import 'https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css'
 html, body {
     height: 100%;
 }
@@ -6,8 +7,6 @@ html {
 }
 body {
     overflow-y: scroll;
-}
-body {
     background: url(/bg1.jpg) no-repeat center fixed;
     background-size: cover;
     font-family: "Whitney SSm A", "Whitney SSm B", "Lato", "Lucida Grande", "Lucida Sans Unicode", Tahoma, Sans-Serif !important;
@@ -36,19 +35,17 @@ header
     margin-right: -50%
     transform: translate(0, -50%)
     border: 2px solid blue
-.leftPanel
-  position: fixed
-  height: 100vh
-  width: 20vh
-  background-color: #f3f9e9
+chatBoxW = 350px
+chatBoxH = chatBoxW * 1.2
 .chatBox
   position: absolute;
-  left: 50%
-  top: 50%
+  left: (chatBoxW / 2)
+  top: 100%
+  color: white
   transform: translate(-50%,-50%);
   border: 2px solid gray
-  width: 500px
-  height: 400px
+  width: chatBoxW
+  height: chatBoxH
   .chatHeading
     position: relative;
     height: 15%

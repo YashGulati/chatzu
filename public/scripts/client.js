@@ -30,3 +30,8 @@ $(function(){
   })
 
 })
+
+$('.chatHeading').click(function(){
+  $('#messages, form').hide();
+  $('.chatBox').css('height','20px');
+});
