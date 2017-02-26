@@ -93,11 +93,11 @@ header
       transform: translate(0%, -50%)
       margin-right: 4px
       float: right
-w = 250
-h = 216
+w = 25%
+h = 48%
 .userNameDiv
-  width: w*1.5px
-  height: h*1.5px
+  width: w
+  height: h
   background: #2B2B2B
   position: absolute;
   display: table
@@ -177,6 +177,20 @@ button:focus { outline:0 !important; }
 @media screen and (max-width: 1000px)
   body
     font-size: 1.1em
+  .userNameDiv
+    width: 80%
+    height: 80%
+    font-size: 3em
+    .userNameForm
+      position: absolute;
+      input[type=text]
+        height: 100px
+        width: 100%
+      button
+        font-size: 1.5em
+        width: 50%
+        padding: 5px
+        margin: 0 auto
   .chatBox
     width: 100%
     height: 100%
