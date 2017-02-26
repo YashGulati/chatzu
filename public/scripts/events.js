@@ -64,7 +64,8 @@ function eventHandlers(){
   if(downPressed) tank.XY[1]++;
   if(spacePressed){
     console.log('space');
-    tank.fire = true;
     tank.fireXY = [0,0];
+    tank.fireXY = [ tank.XY[0] + tank.width + noselW,  + tank.height/2 + tank.XY[1] - 5/2 ];
+    tank.fire = true;
   }
 }

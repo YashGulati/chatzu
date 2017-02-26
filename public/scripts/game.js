@@ -5,7 +5,7 @@ function drawTank(x, y){
   ctx.fillStyle = "#36643A";
   ctx.fill();
   ctx.closePath();
-  ctx.beginPath(); var noselH = tank.height * 0.1; var noselW = tank.width * 0.35;
+  ctx.beginPath(); noselH = tank.height * 0.1; noselW = tank.width * 0.35;
   ctx.rect(tank.width + x, y + tank.height/2 - noselH/2, noselW, noselH);
   ctx.fillStyle = "#342F29";
   ctx.fill();
@@ -13,7 +13,7 @@ function drawTank(x, y){
 
   if(tank.fire){
     ctx.beginPath();
-    ctx.rect(tank.XY[0] + tank.width + noselW + tank.fireXY[0], tank.XY[1] + tank.height/2 + tank.fireXY[1] - 5/2, 5, 5);
+    ctx.rect(tank.fireXY[0], tank.fireXY[1], 5, 5);
     ctx.fillStyle = "black";
     ctx.fill();
     ctx.closePath();

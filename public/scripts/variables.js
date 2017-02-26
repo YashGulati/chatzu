@@ -8,6 +8,9 @@ var upPressed = false;
 var downPressed = false;
 var spacePressed = false;
 
+var noselH;
+var noselW;
+
 var x = 10;
 var tank = {
   XY: [10,10],
