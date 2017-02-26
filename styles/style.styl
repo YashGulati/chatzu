@@ -6,8 +6,6 @@ html {
 }
 body {
     overflow-y: scroll;
-}
-body {
     background: url(/bg1.jpg) no-repeat center fixed;
     background-size: cover;
     font-family: "Whitney SSm A", "Whitney SSm B", "Lato", "Lucida Grande", "Lucida Sans Unicode", Tahoma, Sans-Serif !important;
@@ -23,32 +21,14 @@ header
   font-size: 30px
   &>*
     float: left
-  .logo
-    height: 50px
-    width: 75px
-    background-color: blue
-    // margin: 0 0 10px 10px
-  .name
-    position: relative;
-    // left: 25%;
-    top: 50%;
-    margin-left: 10px
-    margin-right: -50%
-    transform: translate(0, -50%)
-    border: 2px solid blue
-.leftPanel
-  position: fixed
-  height: 100vh
-  width: 20vh
-  background-color: #f3f9e9
 .chatBox
   position: absolute;
   left: 50%
   top: 50%
   transform: translate(-50%,-50%);
   border: 2px solid gray
-  width: 500px
-  height: 400px
+  width: 80vh
+  height: 80vh
   .chatHeading
     position: relative;
     height: 15%
@@ -74,12 +54,11 @@ header
       background-color: rgba(255,255,255,0.3)
       color: #222;
     .message
+      width: 95%
       position: relative;
       height: 30px
-      width: 80%
-      border: 2px solid #439963
-      border-radius: 10px
-      margin: 5px
+      margin: 2px
+      font-size: 1.1em
       .messageUserName
         display: inline;
         color: white
