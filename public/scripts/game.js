@@ -1,16 +1,43 @@
 function drawTank(x, y){
+
   ctx.beginPath();
-  ctx.rect(0, 0, tank.height, tank.width);
+  ctx.rect(x, y, tank.width, tank.height);
   ctx.fillStyle = "#36643A";
   ctx.fill();
   ctx.closePath();
+  ctx.beginPath(); var noselH = tank.height * 0.1; var noselW = tank.width * 0.35;
+  ctx.rect(tank.width + x, y + tank.height/2 - noselH/2, noselW, noselH);
+  ctx.fillStyle = "#342F29";
+  ctx.fill();
+  ctx.closePath();
+
+  if(tank.fire){
+    ctx.beginPath();
+    ctx.rect(tank.XY[0] + tank.width + noselW + tank.fireXY[0], tank.XY[1] + tank.height/2 + tank.fireXY[1] - 5/2, 5, 5);
+    ctx.fillStyle = "black";
+    ctx.fill();
+    ctx.closePath();
+    if(tank.mouthDirection==="right") tank.fireXY[0]++;
+    else if(tank.mouthDirection==="left") tank.fireXY[0]--;
+    else if(tank.mouthDirection==="up") tank.fireXY[1]--;
+    else if(tank.mouthDirection==="down") tank.fireXY[1]++;
+  }
+}
+
+function directionChange(direction){
+  if(direction === 'left'){
+    var temp = [tank.XY[0],tank.XY[1]];
+    tank.XY = [temp[1],temp[0]];
+  }
+  tank.mouthDirection = direction;
 }
 
 $('#canvas').css('background-color','#5C4747');
 
 function draw() {
+  eventHandlers();
   ctx.clearRect(0, 0, canvas.width, canvas.height);
-  drawTank(0,0);
+  drawTank(tank.XY[0],tank.XY[1]);
   requestAnimationFrame(draw);
 };
 draw();
