@@ -34,7 +34,6 @@ header
     background-color: black
     color: #864
     background-image: -webkit-linear-gradient(top, #500, #211)
-
     div
       font-size: 2em
       position: absolute;
@@ -46,6 +45,13 @@ header
     height: 75%
     overflow: hidden;
     overflow-y: scroll;
+    font-size: 1.1em
+    .container
+      padding: none
+      margin: none
+      width: none
+      height: none
+
     .me
       right: 0
       background-color: rgba(0,0,0,0.3)
@@ -55,24 +61,27 @@ header
       background-color: rgba(255,255,255,0.3)
       color: #222;
     .message
-      width: 95%
+      display: inline-block;
+      width: 90%
       position: relative;
       padding: 5px;
       margin: 2px
-      font-size: 1.1em
       .messageUserName
+        height: 100%
         display: inline;
         color: white
-        background: gray
+        opacity: 0.8
+        background: rgba(200,23,50,0.3)
         font-weight: bold
         margin-right: 5px
+
   & form
     position: absolute;
     bottom: 0px
     width: 100%
     display: block;
     height: 10%
-    background-color: #3B2B4B
+    background-color: rgba(100,23,100,0.5)
     & input
       position: absolute;
       top: 50%
