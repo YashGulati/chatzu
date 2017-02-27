@@ -15,27 +15,7 @@
     </script>
     <link rel="stylesheet" href="/styles/style.css">
     <script type="text/javascript" src="/socket.io.js"> </script>
-    <style media="screen">
-      i{
-        display: inline !important;
-      }
-      .error{
-        color: #e3826d;
-        background-color: #f9c8c7;
-        width: 100%;
-        border: 1px solid #e3826d;
-        padding: 2px 10px;
-        position: absolute;
-        left: 0;
-        top: -10px;
-        border-radius: 5px;
-        font-weight: bold;
-      }
-      .error span{
-        padding: 0px;
-        font-weight: normal;
-      }
-    </style>
+    <link rel="stylesheet" href="/styles/getName.css">
   </head>
   <body>
 
@@ -47,7 +27,7 @@
 
 <form action="/userNameSubmit" method="post" class="userNameForm">
   <% if(error!=""){ %>
-    <div class="error"><i class="glyphicon glyphicon-exclamation-sign" style="margin-right: 10px;" aria-hidden="true"></i>Error<span><%= error %></span></div><div class="triangle"><div class="innerTriangle"></div></div>
+    <div class="error"><i class="glyphicon glyphicon-exclamation-sign" style="margin-right: 10px;" aria-hidden="true"></i>Error<span style="font-weight: normal;"><%= error %></span></div>
   <% } %>
   <input type="text" name="userName" value="" id="mainBox" placeholder="Your name here">
 

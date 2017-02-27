@@ -1,3 +1,4 @@
+@import all
 html, body {
     height: 100%;
 }
@@ -23,9 +24,7 @@ header
     float: left
 .chatBox
   position: absolute;
-  left: 50%
-  top: 50%
-  transform: translate(-50%,-50%);
+  absAndCenter()
   border: 2px solid gray
   width: 80%
   height: 80%
@@ -82,7 +81,6 @@ header
       width: 75%
       height: 70%
       border: none
-      // border-top: 2px solid gray
       font-size: 1.2em
       font-family: arial, sans-serif;
       padding: 0px 10px
@@ -93,45 +91,6 @@ header
       transform: translate(0%, -50%)
       margin-right: 4px
       float: right
-w = 25%
-h = 48%
-.userNameDiv
-  width: w
-  height: h
-  background: #2B2B2B
-  position: absolute;
-  display: table
-  left: 50%
-  top: 50%
-  transform: translate(-50%,-50%);
-  & .formHeading
-    position: relative;
-    background-color: #7300AB
-    color: white
-    font-family: arial
-    font-weight: bold
-    font-size: 2em
-    text-align: center
-    // display: table-cell;
-    vertical-align: middle
-    // border: 2px solid red
-    height: 25%
-  .userNameForm
-    position: absolute;
-    // border: 2px solid red
-    left: 50%
-    top: 50%
-    transform: translate(-50%,-50%);
-    *
-      display: block;
-    input[type=text]
-      height: 32*1.1px
-      width: 160*1.1*1.2px
-      text-align: center
-      margin: 50px auto 20px auto
-      font-family: Myriad Pro
-    button
-      width: 100%
 
 input:focus { outline:0 !important; }
 button:focus { outline:0 !important; }
@@ -182,6 +141,7 @@ button:focus { outline:0 !important; }
     height: 70%
     font-size: 3em
     .userNameForm
+
       width: 80%
       margin-top: 10%;
       input[type=text]
