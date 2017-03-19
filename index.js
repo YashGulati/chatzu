@@ -1,21 +1,21 @@
 var express = require('express')
 var app = express()
-var server = require('http').createServer(app)
-var io = require('socket.io').listen(server)
+var bodyParser = require('body-parser')
 var users = []
 var connections = []
 var ejs = require('ejs')
 var stylus = require('stylus')
 var path = require('path')
+var server = require('http').createServer(app)
+var io  = require('socket.io').listen(server)
 var port = process.env.PORT || 80
 var getNamePage = '/'
 var homepage = getNamePage
 var globalChatPath = '/chat'
 var totalOnline = 0
-// body-parser Middleware
-var bodyParser = require('body-parser')
 app.use(bodyParser.urlencoded({extended: false}))
-
+var mongojs = require('mongojs')
+var db = mongojs('chatzu', ['globalChat'])
 // ejs Middleware
 app.set('view engine', 'ejs')
 app.set('views', path.join(__dirname, '/pages'))
@@ -28,9 +28,7 @@ app.use(stylus.middleware({
 
 app.use(require('express').static(__dirname + '/public'));
 
-// mongo
-var mongojs = require('mongojs')
-var db = mongojs('chatzu', ['globalChat']);
+
 
 app.get(globalChatPath, (req,res) => {
   console.log('In global chat: '+req.query.userName);
@@ -107,8 +105,6 @@ io.sockets.on('connection', function(socket){
   })
 
   socket.on('messageSent', function(data){
-
-
   })
 
 })
